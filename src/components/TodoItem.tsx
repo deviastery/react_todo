@@ -1,5 +1,5 @@
 import { todo } from "../models/todos";
-import delete_icon from "../assets/img/DeleteIcon.svg";
+import delete_icon from "../assets/img/BlackDeleteIcon.svg";
 
 type Props = {
   todo: todo;

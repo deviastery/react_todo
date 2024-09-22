@@ -48,7 +48,12 @@ const App = () => {
 
   return (
     <div>
-      <Link to="/dnd">Перейти на To-Do Board</Link>
+      <Link
+        to="/dnd"
+        className="hover:text-gray-500 transition duration-150 ease-in-out"
+      >
+        Перейти на To-Do Board
+      </Link>
       <div className="bg-white rounded-xl shadow-lg w-1/2 mx-auto p-5 m-20">
         <h1 className="text-center text-4xl font-bold underline">
           My To-Do List
@@ -63,7 +68,7 @@ const App = () => {
           />
           <button
             type="submit"
-            className="px-6 py-2 rounded-md bg-gray-300 text-white font-medium hover:bg-gray-400"
+            className="px-6 py-2 rounded-md bg-gray-400 text-white font-medium hover:bg-gray-300"
           >
             Add
           </button>

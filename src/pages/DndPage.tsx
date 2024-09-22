@@ -5,7 +5,7 @@ import {
   Draggable,
   DropResult,
 } from "react-beautiful-dnd";
-import delete_icon from "../assets/img/DeleteIcon.svg";
+import delete_icon from "../assets/img/WhiteDeleteIcon.svg";
 import { todosColumns } from "../models/todos";
 import { Link } from "react-router-dom";
 
@@ -95,39 +95,35 @@ const DndPage = () => {
 
   return (
     <div>
-      <Link to="/todo">Перейти на обычный To-Do</Link>
-      <h1 style={{ textAlign: "center" }}>To-Do Board</h1>
-      <div
-        style={{ display: "flex", justifyContent: "center", height: "100%" }}
+      <Link
+        to="/todo"
+        className="hover:text-gray-500 transition duration-150 ease-in-out"
       >
+        Перейти на обычный To-Do
+      </Link>
+      <h1 className="text-center text-4xl font-bold underline m-4">
+        To-Do Board
+      </h1>
+      <div className="flex justify-center h-full">
         <DragDropContext
           onDragEnd={(result) => onDragEnd({ result, columns, setColumns })}
         >
           {Object.entries(columns).map(([columnId, column]) => {
             return (
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-                key={columnId}
-              >
-                <h2>{column.name}</h2>
-                <div style={{ margin: 8 }}>
+              <div key={columnId} className="flex flex-col items-center">
+                <h2 className="text-center text-2xl">{column.name}</h2>
+                <div className="m-2">
                   <Droppable droppableId={columnId} key={columnId}>
                     {(provided, snapshot) => {
                       return (
                         <div
                           {...provided.droppableProps}
                           ref={provided.innerRef}
+                          className="p-2 w-64 min-h-96 rounded-md"
                           style={{
                             background: snapshot.isDraggingOver
-                              ? "lightblue"
+                              ? "#cbb8e0"
                               : "lightgrey",
-                            padding: 4,
-                            width: 250,
-                            minHeight: 500,
                           }}
                         >
                           {column.items.map((item, index) => {
@@ -143,14 +139,11 @@ const DndPage = () => {
                                       ref={provided.innerRef}
                                       {...provided.draggableProps}
                                       {...provided.dragHandleProps}
+                                      className="flex items-center justify-between p-4 m-0 mb-2 min-h-16 rounded-md text-white"
                                       style={{
-                                        userSelect: "none",
-                                        padding: 16,
-                                        margin: "0 0 8px 0",
-                                        minHeight: "50px",
                                         backgroundColor: snapshot.isDragging
-                                          ? "#263B4A"
-                                          : "#456C86",
+                                          ? "#362847"
+                                          : "#644b83",
                                         color: "white",
                                         ...provided.draggableProps.style,
                                       }}
@@ -158,7 +151,7 @@ const DndPage = () => {
                                       {item.content}
                                       <button
                                         onClick={() => deleteTodo(item.id)}
-                                        className="ml-2 rounded-md text-white font-medium hover:bg-gray-300 p-1 transition duration-150 ease-in-out"
+                                        className="ml-2 rounded-md font-medium hover:bg-gray-700 p-1 transition duration-150 ease-in-out"
                                       >
                                         <img
                                           src={delete_icon}
