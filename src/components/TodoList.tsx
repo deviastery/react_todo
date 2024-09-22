@@ -10,7 +10,7 @@ type Props = {
 
 const TodoList = ({ todos, toggleTodo, deleteTodo }: Props) => {
   return (
-    <div>
+    <div className="py-1">
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}

@@ -46,18 +46,30 @@ const App = () => {
       : todos.filter((todo) => !todo.completed);
 
   return (
-    <div>
-      <h1>My To-Do List</h1>
-      <form onSubmit={addTodo}>
+    <div className="bg-white rounded-xl shadow-lg w-1/2 mx-auto p-5 m-20">
+      <h1 className="text-center text-4xl font-bold underline">
+        My To-Do List
+      </h1>
+      <form onSubmit={addTodo} className="m-3 flex justify-between">
         <input
           type="text"
           value={newTodoTitle}
           onChange={(e) => setNewTodoTitle(e.target.value)}
           placeholder="Add new task..."
+          className="p-1 focus:outline-none"
         />
-        <button type="submit">Add</button>
+        <button
+          type="submit"
+          className="px-6 py-2 rounded-md bg-gray-300 text-white font-medium hover:bg-gray-400"
+        >
+          Add
+        </button>
       </form>
-      <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+      <select
+        value={filter}
+        onChange={(e) => setFilter(e.target.value)}
+        className="w-full"
+      >
         <option value="All tasks">All tasks</option>
         <option value="Only completed">Only completed</option>
         <option value="Only uncompleted">Only uncompleted</option>

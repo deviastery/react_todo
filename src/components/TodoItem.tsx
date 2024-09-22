@@ -10,15 +10,21 @@ type Props = {
 
 const TodoItem = ({ todo, toggleTodo, deleteTodo }: Props) => {
   return (
-    <div>
-      <input
-        type="checkbox"
-        checked={todo.completed}
-        onChange={() => toggleTodo(todo.id)}
-      />
-      <span>{todo.title}</span>
-      <button onClick={() => deleteTodo(todo.id)}>
-        <img src={delete_icon} alt="Delete" />
+    <div className="flex items-center justify-between py-2">
+      <div className="flex items-center gap-2">
+        <input
+          type="checkbox"
+          checked={todo.completed}
+          onChange={() => toggleTodo(todo.id)}
+          className="w-4 h-4"
+        />
+        <span>{todo.title}</span>
+      </div>
+      <button
+        onClick={() => deleteTodo(todo.id)}
+        className="ml-2 rounded-md text-white font-medium hover:bg-gray-300 p-1 transition duration-150 ease-in-out"
+      >
+        <img src={delete_icon} alt="Delete" className="w-4 h-4" />
       </button>
     </div>
   );
