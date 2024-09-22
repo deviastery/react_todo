@@ -1,4 +1,3 @@
-import React from "react";
 import { todo } from "../models/todos";
 import delete_icon from "../assets/img/DeleteIcon.svg";
 
