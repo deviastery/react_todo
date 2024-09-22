@@ -7,6 +7,7 @@ import {
 } from "react-beautiful-dnd";
 import delete_icon from "../assets/img/DeleteIcon.svg";
 import { todosColumns } from "../models/todos";
+import { Link } from "react-router-dom";
 
 const tasks = [
   { id: "1", content: "First task" },
@@ -94,6 +95,7 @@ const DndPage = () => {
 
   return (
     <div>
+      <Link to="/todo">Перейти на обычный To-Do</Link>
       <h1 style={{ textAlign: "center" }}>To-Do Board</h1>
       <div
         style={{ display: "flex", justifyContent: "center", height: "100%" }}

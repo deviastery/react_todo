@@ -6,7 +6,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/react_todo" element={<TodoPage />} />
+        <Route path="/todo" element={<TodoPage />} />
         <Route path="/dnd" element={<DndPage />} />
       </Routes>
     </Router>
